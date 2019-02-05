@@ -113,7 +113,7 @@ router.post('/login', function(req, res, next){
   });
 });
 
-router.get('/isLoggedIn', function(req, res, next){
+router.post('/isLoggedIn', function(req, res, next){
   var token = req.body.JWT;
 
   LoggedIn.getRecordByJWT(token, function(err, record){
@@ -147,7 +147,7 @@ router.get('/isLoggedIn', function(req, res, next){
   });
 });
 
-router.get('/getRole', function(req, res, next){
+router.post('/getRole', function(req, res, next){
   var token = req.body.JWT;
   var email = req.body.email;
 
