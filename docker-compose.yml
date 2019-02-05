@@ -22,9 +22,10 @@ services:
       - "4306:3306"
   master:
     container_name: master
-#    restart: always
+    restart: always
     build: ./master/
     ports:
       - "1000:8080"
+    command: ["sleep", "60"]
     links:
       - masterdb
