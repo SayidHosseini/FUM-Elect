@@ -1,5 +1,18 @@
 version: "2"
 services:
+  auth:
+    container_name: auth
+    restart: always
+    build: .
+    ports:
+      - "2000:2000"
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+#      - "37017:27017"
   masterdb:
     container_name: masterdb
     image: ardalanfp/cloudcoursemicroserviceproject:masterDb
