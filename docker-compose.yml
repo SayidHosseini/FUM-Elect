@@ -30,7 +30,7 @@ services:
     links:
       - masterdb
   validator:
-    caontainer_name: validator
+    container_name: validator
     build: ./validator/
     ports:
       - "3000:8081"
