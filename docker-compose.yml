@@ -1,51 +1,51 @@
 version: "3"
 services:
-  auth:
-    container_name: auth
-    restart: always
-    build: ./RESTauth/
-    ports:
-      - "2000:2000"
-    links:
-      - mongo
+  # auth:
+  #   container_name: auth
+  #   restart: always
+  #   build: ./RESTauth/
+  #   ports:
+  #     - "2000:2000"
+  #   links:
+  #     - mongo
   mongo:
     container_name: mongo
     image: mongo
     ports:
       - "27017:27017"
-  masterdb:
-    container_name: masterdb
-    restart: always
-    build: ./master/databaseDirectory/
-    environment:
-      MYSQL_ROOT_PASSWORD: "12345"
-    ports:
-      - "4306:3306"
-  master:
-    container_name: master
-    restart: always
-    build: ./master/
-    ports:
-      - "1000:8080"
-    links:
-      - masterdb
-  validator:
-    container_name: validator
-    build: ./validator/
-    ports:
-      - "3000:8081"
-    links:
-      - master
-      - auth
-  electionportal:
-    container_name: electionportal
-    deploy:
-      replicas: 5
-    build: ./electionportal/
-    ports:
-      - "4000:8082"
-    links:
-      - master
+  # masterdb:
+  #   container_name: masterdb
+  #   restart: always
+  #   build: ./master/databaseDirectory/
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: "12345"
+  #   ports:
+  #     - "4306:3306"
+  # master:
+  #   container_name: master
+  #   restart: always
+  #   build: ./master/
+  #   ports:
+  #     - "1000:8080"
+  #   links:
+  #     - masterdb
+  # validator:
+  #   container_name: validator
+  #   build: ./validator/
+  #   ports:
+  #     - "3000:8081"
+  #   links:
+  #     - master
+  #     - auth
+  # electionportal:
+  #   container_name: electionportal
+  #   deploy:
+  #     replicas: 5
+  #   build: ./electionportal/
+  #   ports:
+  #     - "4000:8082"
+  #   links:
+  #     - master
   visualizer:
     image: dockersamples/visualizer:stable
     ports:
