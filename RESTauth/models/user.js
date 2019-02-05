@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
+var dbConfig = require('../db/config.json')
 
-mongoose.connect('mongodb://localhost/nodeauth');
-
-var db = mongoose.connection;
+var db = mongoose.connect(dbConfig.DB);
 
 // User Schema
 var UserSchema = mongoose.Schema({

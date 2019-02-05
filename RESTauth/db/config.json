@@ -1,0 +1,3 @@
+{
+    "DB": "mongodb://mongo:27017/nodeauth"
+}
