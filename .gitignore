@@ -1,8 +1,9 @@
 RESTauth/node_modules/
 
-/target/
+master/target/
 !.mvn/wrapper/maven-wrapper.jar
 
+validator/target/
 
 ### IntelliJ IDEA ###
 */.idea
