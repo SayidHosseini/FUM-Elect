@@ -1,0 +1,16 @@
+version: "2"
+services:
+  masterdb:
+    container_name: masterdb
+    build: ./databaseDirectory/
+    environment:
+      MYSQL_ROOT_PASSWORD: "12345"
+    ports:
+      - "4306:3306"
+  master:
+    container_name: master
+    build: ./
+    ports:
+      - "1000:8080"
+    links:
+      - masterdb
