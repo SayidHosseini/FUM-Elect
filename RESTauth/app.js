@@ -44,4 +44,21 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+var User = require('./models/user');
+
+var newUser = new User({
+  name: 'admin',
+  email: 'admin@fumelect.com',
+  password: 'admin',
+  profileimage: 'noimage.jpg',
+  role: 'admin'
+});
+
+User.createUser(newUser, function(err, user){
+  if(err)
+  {
+    throw err;
+  }
+});
+
 module.exports = app;
