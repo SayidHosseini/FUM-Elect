@@ -7,17 +7,17 @@ import main.CloudCourseProject.repository.CandidateRepository;
 import main.CloudCourseProject.repository.ElectionRepository;
 import main.CloudCourseProject.repository.VotesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 public class masterController {
@@ -32,8 +32,24 @@ public class masterController {
     @Autowired
     VotesRepository votesRepository;
 
-    private boolean isValid(Election election,Candidate candidate,String voterEmail){
-        //todo
+    @Value("${voteSystemIp}")
+    private String voteSystemIp;
+
+    @Value("${voteSystemPort}")
+    private String voteSystemPort;
+
+    @GetMapping("/test")
+    private boolean isValid(String voterEmail){
+        final String uri = "http://"+voteSystemIp+":"+voteSystemPort+"/validate?electionId=1&candidateID=1&voterEmail="+voterEmail+"&submitDateString="+new Date().toString();
+        System.out.println(uri);
+        RestTemplate restTemplate = new RestTemplate();
+        Map<String, String> uriParam = new HashMap<>();
+        uriParam.put("electionId", "1");
+        uriParam.put("candidateID", "1");
+        uriParam.put("voterEmail", voterEmail);
+        uriParam.put("submitDateString", new Date().toString());
+        String result = restTemplate.getForObject(uri,String.class);
+        System.out.println(result);
         return true;
     }
 
@@ -154,7 +170,8 @@ public class masterController {
         if(!candidate.isPresent()){
             return "candidate not found";
         }
-        if(isValid(election.get(),candidate.get(),voterEmail)){
+//        if(isValid(election.get(),candidate.get(),voterEmail)){
+        if(isValid(voterEmail)){
             Date d = new Date();
             Vote v = new Vote(candidate.get(),election.get(), d,voterEmail);
             votesRepository.save(v);
