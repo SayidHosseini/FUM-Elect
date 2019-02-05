@@ -40,7 +40,8 @@ public class masterController {
 
 
     private boolean isValid(Election e,Candidate c,String voterEmail){
-        final String uri = "http://"+voteSystemIp+":"+voteSystemPort+"/validate?electionId=1&candidateID=1&voterEmail="+voterEmail+"&submitDateString="+new Date().toString();
+        System.out.println("isValid function");
+        final String uri = "http://"+voteSystemIp+":"+voteSystemPort+"/validate";
         System.out.println(uri);
         RestTemplate restTemplate = new RestTemplate();
         Map<String, String> uriParam = new HashMap<>();
@@ -48,7 +49,7 @@ public class masterController {
         uriParam.put("candidateID", ""+c.getId());
         uriParam.put("voterEmail", voterEmail);
         uriParam.put("submitDateString", new Date().toString());
-        String result = restTemplate.getForObject(uri,String.class);
+        String result = restTemplate.getForObject(uri,String.class,uriParam);
         if("true".equals(result)) {
             return true;
         }

@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class controller {
@@ -43,6 +45,19 @@ public class controller {
         }catch (Exception e){
             return new ArrayList<>();
         }
+        return result;
+    }
+
+    @GetMapping(value = "/saveVote")
+    public String vote(int electionId,int candidateId,String voterEmail){
+        final String uri = "http://"+masterServiceIp+":"+masterServicePort+"/vote/save";
+        System.out.println(uri);
+        Map<String, String> uriParam = new HashMap<>();
+        uriParam.put("electionId", ""+electionId);
+        uriParam.put("candidateID", ""+candidateId);
+        uriParam.put("voterEmail", voterEmail);
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForObject(uri,String.class,uriParam);
         return result;
     }
 
