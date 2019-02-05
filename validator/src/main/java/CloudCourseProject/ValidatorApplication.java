@@ -17,11 +17,11 @@ public class ValidatorApplication {
     static String module_jwt =null;
     private static void loginToAuth(){
 
-        final String uri = "http://127.0.0.1:2000/users/login";
+        final String uri = "http://auth:2000/users/login";
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        String requestJson = "{\"email\": \"ardalan@test.com\",\"password\": \"123\"}";
+        String requestJson = "{\"email\": \"admin@fumelect.com\",\"password\": \"admin\"}";
         HttpEntity<String> entity = new HttpEntity<String>(requestJson, headers);
         ResponseEntity<String> response = null;
         try {

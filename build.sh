@@ -22,5 +22,7 @@ mvn install
 
 echo "docker-compose down"
 sudo docker-compose down
+echo "docker-compose build"
+sudo docker-compose build
 echo "docker-compose up"
 sudo docker-compose up
