@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -92,13 +93,12 @@ public class Controller {
     }
 
 
-    @GetMapping(value = "/test")
+    @GetMapping(value = "/validate")
     public String validate(int electionId,int candidateID,String voterEmail,String submitDateString ){
         String jsonString = getElectionJson(electionId);
         if(jsonString == null){
             return "false";
         }
-        System.out.println(1);
         ObjectMapper mapper = new ObjectMapper();
         Date startDate;
         Date endDate;
@@ -109,12 +109,20 @@ public class Controller {
             String format = "yyyy-MM-dd HH:mm:ss.SZ";
             startDate = new SimpleDateFormat(format).parse(startDateJson.asText().replace("T"," "));
             endDate = new SimpleDateFormat(format).parse(endDateJson.asText().replace("T"," "));
-            System.out.println(startDate);
-            System.out.println(endDate);
         } catch (Exception e) {
             return e.toString();
         }
-        System.out.println(2);
+        Date currentTime;
+        try {
+            currentTime= new SimpleDateFormat("E MMM dd HH:mm:ss z yyyy").parse(submitDateString);
+        } catch (ParseException e) {
+            return e.toString();
+        }
+//        checking if time is ok
+        if(currentTime.compareTo(startDate) < 0 || currentTime.compareTo(endDate) > 0 ){
+            return "false";
+        }
+
         //check if voterId is user
         if(!"user".equals(getUserRole(voterEmail))){
             return "false";
