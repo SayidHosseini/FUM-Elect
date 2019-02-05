@@ -38,19 +38,21 @@ public class masterController {
     @Value("${voteSystemPort}")
     private String voteSystemPort;
 
-    @GetMapping("/test")
-    private boolean isValid(String voterEmail){
+
+    private boolean isValid(Election e,Candidate c,String voterEmail){
         final String uri = "http://"+voteSystemIp+":"+voteSystemPort+"/validate?electionId=1&candidateID=1&voterEmail="+voterEmail+"&submitDateString="+new Date().toString();
         System.out.println(uri);
         RestTemplate restTemplate = new RestTemplate();
         Map<String, String> uriParam = new HashMap<>();
-        uriParam.put("electionId", "1");
-        uriParam.put("candidateID", "1");
+        uriParam.put("electionId", ""+e.getId());
+        uriParam.put("candidateID", ""+c.getId());
         uriParam.put("voterEmail", voterEmail);
         uriParam.put("submitDateString", new Date().toString());
         String result = restTemplate.getForObject(uri,String.class);
-        System.out.println(result);
-        return true;
+        if("true".equals(result)) {
+            return true;
+        }
+        return false;
     }
 
     @RequestMapping(value = "/election/get")
@@ -160,7 +162,7 @@ public class masterController {
         candidateRepository.deleteById(candidateId);
     }
 
-    @RequestMapping(value = "/vote/save")
+    @RequestMapping(value = "/vote/save")//todo
     public String saveVote(int electionId,int candidateId,String voterEmail){
         Optional<Election> election = electionRepository.findById(electionId);
         Optional<Candidate> candidate = candidateRepository.findById(candidateId);
@@ -170,8 +172,8 @@ public class masterController {
         if(!candidate.isPresent()){
             return "candidate not found";
         }
-//        if(isValid(election.get(),candidate.get(),voterEmail)){
-        if(isValid(voterEmail)){
+        if(isValid(election.get(),candidate.get(),voterEmail)){
+
             Date d = new Date();
             Vote v = new Vote(candidate.get(),election.get(), d,voterEmail);
             votesRepository.save(v);

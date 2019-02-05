@@ -29,3 +29,18 @@ services:
     command: ["sleep", "60"]
     links:
       - masterdb
+  validator:
+    caontainer_name: validator
+    build: ./validator/
+    ports:
+      - "3000:8081"
+    links:
+      - master
+      - auth
+  electionportal:
+    container_name: electionportal
+    build: ./electionportal/
+    ports:
+      - "4000:8082"
+    links:
+      - master
