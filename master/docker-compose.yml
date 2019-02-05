@@ -1,0 +1,17 @@
+version: "2"
+services:
+  masterdb:
+    container_name: masterdb
+    image: ardalanfp/cloudcoursemicroserviceproject:masterDb
+    environment:
+      MYSQL_ROOT_PASSWORD: "12345"
+    ports:
+      - "4306:3306"
+  master:
+    container_name: master
+#    restart: always
+    image: ardalanfp/cloudcoursemicroserviceproject:master
+    ports:
+      - "9080:8080"
+    links:
+      - masterdb

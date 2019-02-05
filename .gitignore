@@ -1,1 +1,19 @@
 RESTauth/node_modules/
+
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+
+### IntelliJ IDEA ###
+*/.idea
+*.iws
+*.iml
+*.ipr
+
+
+### maven ###
+mvnw
+mvnw.cmd
+.mvn
+.mvn/
+
