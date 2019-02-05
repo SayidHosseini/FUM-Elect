@@ -15,6 +15,7 @@ services:
       - "27017:27017"
   masterdb:
     container_name: masterdb
+    restart: always
     build: ./master/databaseDirectory/
     environment:
       MYSQL_ROOT_PASSWORD: "12345"
@@ -26,7 +27,6 @@ services:
     build: ./master/
     ports:
       - "1000:8080"
-    command: ["sleep", "60"]
     links:
       - masterdb
   validator:
@@ -39,8 +39,19 @@ services:
       - auth
   electionportal:
     container_name: electionportal
+    deploy:
+      replicas: 5
     build: ./electionportal/
     ports:
       - "4000:8082"
     links:
       - master
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
