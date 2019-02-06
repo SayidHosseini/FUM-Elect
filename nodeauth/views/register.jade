@@ -1,0 +1,42 @@
+extends layout
+
+block content
+    h2.page-header= title
+    p Please register using the form below
+
+    form(method="post", action="/users/register", enctype= "multipart/form-data")
+        .form-group
+            label Name *
+            input.form-control(name='name', type= "text", placeholder="Enter Name" value=name)
+            errors
+                if errors
+                    each error, i in errors
+                        if error.param === "name"
+                            div.p(style='color: #a70000') &emsp; #{error.msg}
+                            - break
+        .form-group
+            label E-mail *
+            input.form-control(name="email", type="email", placeholder="Enter E-mail", value=email)
+            errors
+                if errors
+                    each error, i in errors
+                        if error.param === "email"
+                            div.p(style='color: #a70000') &emsp; #{error.msg}
+                            - break
+        .form-group
+            label Password *
+            input.form-control(name="password", type="password", placeholder="Enter Password")
+        .form-group
+            label Confirm Password *
+            input.form-control(name="password2", type="password", placeholder="Confirm Password")
+            errors
+                if errors
+                    each error, i in errors
+                        if error.param === "password"
+                            div.p(style='color: #a70000') &emsp; #{error.msg}
+                            - break
+        .form-group
+            label Profile Image
+            input.form-control-file(name="profileimage", type="file")
+        input.btn.btn-primary(type='submit', name='submit', value='Register')
+
