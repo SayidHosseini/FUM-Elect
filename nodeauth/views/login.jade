@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h2.page-header= title
+
+    form(method="post", action="/users/login")
+        .form-group
+            label E-mail
+            input.form-control(name="email", type="email", placeholder="Enter E-mail")
+        .form-group
+            label Password
+            input.form-control(name="password", type="password", placeholder="Enter Password")
+        input.btn.btn-primary(type='submit', name='submit', value='Login')
