@@ -8,14 +8,14 @@ services:
         condition: on-failure
     ports:
       - "2000:2000"
-    links:
-      - mongo
-
+    networks:
+      - webnet
   mongo:
-    container_name: mongo
     image: mongo
     ports:
       - "27017:27017"
+    networks:
+      - webnet
   # masterdb:
   #   container_name: masterdb
   #   restart: always
@@ -58,3 +58,7 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
+    networks:
+      - webnet
+networks:
+  webnet:
