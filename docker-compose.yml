@@ -57,7 +57,14 @@ services:
   #   links:
   #     - master
   #     - auth
-  # electionportal:
+  electionportal:
+    image: ardalanfp/cloudcoursemicroserviceproject:electionportal
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "4000:8082"
   #   container_name: electionportal
   #   deploy:
   #     replicas: 5
