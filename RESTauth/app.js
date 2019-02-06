@@ -54,10 +54,16 @@ var newUser = new User({
   role: 'admin'
 });
 
-User.createUser(newUser, function(err, user){
-  if(err)
-  {
+User.getUserByEmail(newUser.email, function (err, user) {
+  if (err) {
     throw err;
+  }
+  if (!user) {
+    User.createUser(newUser, function (err, user) {
+      if (err) {
+        throw err;
+      }
+    });
   }
 });
 

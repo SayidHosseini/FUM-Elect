@@ -9,6 +9,7 @@ router.post('/register', function(req, res, next) {
   var name = req.body.name;
   var email = req.body.email;
   var password = req.body.password;
+  var profileimage = req.profileimage;
 
   if(!name || !email || !password)
   {
@@ -23,7 +24,7 @@ router.post('/register', function(req, res, next) {
       name: name,
       email: email,
       password: password,
-      profileimage: 'noimage.jpg',
+      profileimage: profileimage,
       role: 'user'
     });
 
