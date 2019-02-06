@@ -1,0 +1,658 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2019-02-06T02:20:28.529Z",
+	"__export_source": "insomnia.desktop.app:v6.3.2",
+	"resources": [
+		{
+			"_id": "wrk_ef0144afcc3f4790841669b682080b2b",
+			"created": 1525315161672,
+			"description": "",
+			"modified": 1525315161672,
+			"name": "Insomnia",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_9dfba7b58d314b358d077fbbf9fb6daf",
+			"color": null,
+			"created": 1525315161720,
+			"data": {},
+			"isPrivate": false,
+			"metaSortKey": 1549299079559,
+			"modified": 1525315161720,
+			"name": "New Environment",
+			"parentId": "wrk_ef0144afcc3f4790841669b682080b2b",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_97ed640346204869b0ad34c644553415",
+			"cookies": [],
+			"created": 1525315161796,
+			"modified": 1525315161796,
+			"name": "Default Jar",
+			"parentId": "wrk_ef0144afcc3f4790841669b682080b2b",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_b57355faa3b343e1aca06bb428d1d7e8",
+			"created": 1549204459923,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1549204459923,
+			"modified": 1549204459923,
+			"name": "Auth",
+			"parentId": "wrk_ef0144afcc3f4790841669b682080b2b",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_b83ed035a17a4905a54c20fb9e923951",
+			"created": 1549299815039,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1549299815040,
+			"modified": 1549299815039,
+			"name": "master",
+			"parentId": "wrk_ef0144afcc3f4790841669b682080b2b",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_f02554ab2c9b494ba07ee5e9504a5ac9",
+			"created": 1549401851079,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1549401851079,
+			"modified": 1549401851079,
+			"name": "electionPortal",
+			"parentId": "wrk_ef0144afcc3f4790841669b682080b2b",
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_92aa9006c8624640a5788a5b07b6bad9",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"JWT\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyZGFsYW5AdW0uYWMuaXIiLCJpYXQiOjE1NDkyODQyMDUsImV4cCI6MTU0OTM3MDYwNSwiYXVkIjoiRlVNLUVsZWN0IENsaWVudCIsImlzcyI6IkZVTS1FbGVjdCBTZXJ2ZXIiLCJzdWIiOiJhcmRhbGFuQHVtLmFjLmlyIn0.eT57HINB37R1Lun6nRVRUBLf5Jg87u_ZpMmBlNHWhwhwuLvHosLwV0TS1TISA0p6PnOeNsn0ZbqfZw9ruRHHPQ\"\n}"
+			},
+			"created": 1549204479133,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_32f7862c6d664bcfb8bbbbf761c95d7a",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1538741121746.5,
+			"method": "GET",
+			"modified": 1549419499680,
+			"name": "isLoggedIn",
+			"parameters": [],
+			"parentId": "fld_b57355faa3b343e1aca06bb428d1d7e8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:2000/users/isLoggedIn",
+			"_type": "request"
+		},
+		{
+			"_id": "req_e627dda28b3e40edaad99b960eb51a36",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\"JWT\":\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyZGFsYW5AdGVzdC5jb20iLCJpYXQiOjE1NDkzNTQ1MDUsImV4cCI6MTU0OTQ0MDkwNSwiYXVkIjoiRlVNLUVsZWN0IENsaWVudCIsImlzcyI6IkZVTS1FbGVjdCBTZXJ2ZXIiLCJzdWIiOiJhcmRhbGFuQHRlc3QuY29tIn0.qMQsO_GNBIpdnoA37wQ5sgPzvjmr5kkc83PVdjhb-eraF5tsUazXGzveq5L2gsZckdau4X1-GcPq1YPQl93XzA\",\"email\": \"ardalan@test.com\"}\n"
+			},
+			"created": 1549205196606,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_06b3c8be0ef74597960f0ea9fbb4fcdb",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1538741121696.5,
+			"method": "POST",
+			"modified": 1549419494508,
+			"name": "getRole",
+			"parameters": [],
+			"parentId": "fld_b57355faa3b343e1aca06bb428d1d7e8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:2000/users/getRole",
+			"_type": "request"
+		},
+		{
+			"_id": "req_22065efeafb24039b6a023654463957a",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Saeed\",\n\t\"email\": \"sayidhosseini@hotmail.com\",\n\t\"password\": \"1234\"\n}"
+			},
+			"created": 1549273001948,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_54705cde5efd40f49485fcbae52c3d3d",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549273001948,
+			"method": "POST",
+			"modified": 1549419504289,
+			"name": "register",
+			"parameters": [],
+			"parentId": "fld_b57355faa3b343e1aca06bb428d1d7e8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:2000/users/register",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ab4e81cf6fec4e96ae23cb2192a25ce7",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"email\": \"ardalan@test.com\",\n\t\"password\": \"123\"\n}"
+			},
+			"created": 1549275803712,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_dd54ab51292e4768a6e764090efe8985",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549275803712,
+			"method": "POST",
+			"modified": 1549419508084,
+			"name": "login",
+			"parameters": [],
+			"parentId": "fld_b57355faa3b343e1aca06bb428d1d7e8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:2000/users/login",
+			"_type": "request"
+		},
+		{
+			"_id": "req_e9dae4a2a2e9425d81e61ce5954ad00a",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"JWT\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyZGFsYW5AdW0uYWMuaXIiLCJpYXQiOjE1NDkyODQyMDUsImV4cCI6MTU0OTM3MDYwNSwiYXVkIjoiRlVNLUVsZWN0IENsaWVudCIsImlzcyI6IkZVTS1FbGVjdCBTZXJ2ZXIiLCJzdWIiOiJhcmRhbGFuQHVtLmFjLmlyIn0.eT57HINB37R1Lun6nRVRUBLf5Jg87u_ZpMmBlNHWhwhwuLvHosLwV0TS1TISA0p6PnOeNsn0ZbqfZw9ruRHHPQ\",\n\t\"email\": \"sayidhosseini@hotmail.com\",\n\t\"role\": \"admin\"\n}"
+			},
+			"created": 1549297374062,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_7020cc747ce54c4f979237db0acffc34",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1538741121646.5,
+			"method": "POST",
+			"modified": 1549419445385,
+			"name": "setRole",
+			"parameters": [],
+			"parentId": "fld_b57355faa3b343e1aca06bb428d1d7e8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:2000/users/setRole",
+			"_type": "request"
+		},
+		{
+			"_id": "req_58b2100893ec40e5a09349ecd791b14c",
+			"authentication": {},
+			"body": {},
+			"created": 1549357755384,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_ca0bf02df1eb447aa4f672fe4f7f51b0",
+					"name": "",
+					"value": ""
+				},
+				{
+					"id": "pair_4e642593e4844b53959b4b8184cca597",
+					"name": "",
+					"value": ""
+				},
+				{
+					"id": "pair_5712eb9612cd498d8b8980988d89d612",
+					"name": "",
+					"value": ""
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549357755384,
+			"method": "GET",
+			"modified": 1549419584585,
+			"name": "create election",
+			"parameters": [
+				{
+					"id": "pair_d986e30648394bc0a2af5c474cb42928",
+					"name": "name",
+					"value": "newElection"
+				},
+				{
+					"id": "pair_2e4869d3123943a4bb663ab15e82c9b0",
+					"name": "startTimeDate",
+					"value": "11-12-2020 12:00:00"
+				},
+				{
+					"id": "pair_414ae659970b44a59350cb9058d63779",
+					"name": "endTimeDate",
+					"value": "12-12-2020 12:00:00"
+				}
+			],
+			"parentId": "fld_b83ed035a17a4905a54c20fb9e923951",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:1000/election/save",
+			"_type": "request"
+		},
+		{
+			"_id": "req_04a799c2af414e96aec61dbfd3b7de05",
+			"authentication": {},
+			"body": {},
+			"created": 1549358122786,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1549358122786,
+			"method": "GET",
+			"modified": 1549419580571,
+			"name": "get all elections",
+			"parameters": [
+				{
+					"disabled": false,
+					"id": "pair_94796538d3f04caeb07837e61d6ceba3",
+					"name": "voterEmail",
+					"value": "hiii"
+				}
+			],
+			"parentId": "fld_b83ed035a17a4905a54c20fb9e923951",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:1000/getElections",
+			"_type": "request"
+		},
+		{
+			"_id": "req_41347a79c78f4e23a7cfc0e69af8a47d",
+			"authentication": {},
+			"body": {},
+			"created": 1549358244164,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1549358244164,
+			"method": "GET",
+			"modified": 1549419576169,
+			"name": "createCandidate",
+			"parameters": [
+				{
+					"id": "pair_c06299f5720f4a6fbdeeaf6aa32dd1c4",
+					"name": "name",
+					"value": "mamad"
+				},
+				{
+					"id": "pair_e011322f573a4139bc6e1f9ae3cbfe4f",
+					"name": "candidateElectionNumber",
+					"value": "22"
+				}
+			],
+			"parentId": "fld_b83ed035a17a4905a54c20fb9e923951",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:1000/candidate/save",
+			"_type": "request"
+		},
+		{
+			"_id": "req_026d75ac857d40ce934d93728e347713",
+			"authentication": {},
+			"body": {},
+			"created": 1549358329905,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1549358329905,
+			"method": "GET",
+			"modified": 1549419572094,
+			"name": "add candidate to election",
+			"parameters": [
+				{
+					"id": "pair_0a4c0302ad6441b48c31bd0a0ff03b3d",
+					"name": "candidateId",
+					"value": "1"
+				},
+				{
+					"id": "pair_541b11ab5d2b4148afa5db670826f0c5",
+					"name": "electionId",
+					"value": "1"
+				}
+			],
+			"parentId": "fld_b83ed035a17a4905a54c20fb9e923951",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:1000/election/candidate/add",
+			"_type": "request"
+		},
+		{
+			"_id": "req_1641347abd274d93987ffd0ff77b43bf",
+			"authentication": {},
+			"body": {},
+			"created": 1549358403647,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1549358403647,
+			"method": "GET",
+			"modified": 1549419568786,
+			"name": "get election candidates",
+			"parameters": [
+				{
+					"id": "pair_f7c2e9127c21465cb2080c5bdf62acb2",
+					"name": "electionId",
+					"value": "1"
+				}
+			],
+			"parentId": "fld_b83ed035a17a4905a54c20fb9e923951",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:1000/election/candidate/all",
+			"_type": "request"
+		},
+		{
+			"_id": "req_4abcfd12c98b41aea4df596a8fb603fc",
+			"authentication": {},
+			"body": {},
+			"created": 1549358496369,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1549358496369,
+			"method": "GET",
+			"modified": 1549419564957,
+			"name": "vote exists",
+			"parameters": [
+				{
+					"id": "pair_a02cc2f7b7d643009fd0b240e8b1a074",
+					"name": "electionId",
+					"value": "1"
+				},
+				{
+					"id": "pair_d0e37084ae9b4d62b63f87da85b3187e",
+					"name": "voterEmail",
+					"value": "ardalan@test.com"
+				}
+			],
+			"parentId": "fld_b83ed035a17a4905a54c20fb9e923951",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:1000/vote/exists",
+			"_type": "request"
+		},
+		{
+			"_id": "req_0bf116b77d0e4d00a60b0bdf8d7316de",
+			"authentication": {},
+			"body": {},
+			"created": 1549358796796,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1549358796796,
+			"method": "GET",
+			"modified": 1549419560771,
+			"name": "get a single election",
+			"parameters": [
+				{
+					"id": "pair_35ec716f365b44c392ac712c06d964e2",
+					"name": "electionId",
+					"value": "1"
+				}
+			],
+			"parentId": "fld_b83ed035a17a4905a54c20fb9e923951",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:1000/election/get",
+			"_type": "request"
+		},
+		{
+			"_id": "req_68aa464a7b0448a6b9453fa00b3ca935",
+			"authentication": {},
+			"body": {},
+			"created": 1549402151385,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1549402151385,
+			"method": "GET",
+			"modified": 1549402151385,
+			"name": "get a single candidate",
+			"parameters": [],
+			"parentId": "fld_b83ed035a17a4905a54c20fb9e923951",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8cffb25183db4f2d989a521ec7413e10",
+			"authentication": {},
+			"body": {},
+			"created": 1549402195213,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1549402195213,
+			"method": "GET",
+			"modified": 1549419555815,
+			"name": "delete candidate",
+			"parameters": [
+				{
+					"id": "pair_052092cbe68942e8b80d36cf7c0c5f8b",
+					"name": "candidateId",
+					"value": "1"
+				}
+			],
+			"parentId": "fld_b83ed035a17a4905a54c20fb9e923951",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:1000/candidate/delete",
+			"_type": "request"
+		},
+		{
+			"_id": "req_45b6ae47348d48958434aa0da6132f8e",
+			"authentication": {},
+			"body": {},
+			"created": 1549402207794,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1549402207794,
+			"method": "GET",
+			"modified": 1549419544858,
+			"name": "save vote",
+			"parameters": [
+				{
+					"id": "pair_8376eb1aaa8b45fa95ea812eb0d668a3",
+					"name": "electionId",
+					"value": "1"
+				},
+				{
+					"id": "pair_0f901dcadae54d45aec53dd7c75bd53b",
+					"name": "candidateId",
+					"value": "1"
+				},
+				{
+					"id": "pair_5d4e1e97319e4774913c9aa9718cc385",
+					"name": "voterEmail",
+					"value": "test@test.com"
+				}
+			],
+			"parentId": "fld_b83ed035a17a4905a54c20fb9e923951",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:1000/vote/save",
+			"_type": "request"
+		},
+		{
+			"_id": "req_304eaa14ecee46f6bff71633a2e3a93c",
+			"authentication": {},
+			"body": {},
+			"created": 1549401935821,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1549401935821,
+			"method": "GET",
+			"modified": 1549419611370,
+			"name": "get elections",
+			"parameters": [],
+			"parentId": "fld_f02554ab2c9b494ba07ee5e9504a5ac9",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:4000/getElections",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ba02c0fa38cc4105876cc0edf10b2c98",
+			"authentication": {},
+			"body": {},
+			"created": 1549401946633,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1549401946633,
+			"method": "GET",
+			"modified": 1549419607058,
+			"name": "get election candidates",
+			"parameters": [
+				{
+					"id": "pair_7c8f00e1a91b42f4b46a4d9f64c9360a",
+					"name": "electionId",
+					"value": "1"
+				}
+			],
+			"parentId": "fld_f02554ab2c9b494ba07ee5e9504a5ac9",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:4000/getElectionCandidates",
+			"_type": "request"
+		},
+		{
+			"_id": "req_2917dc2709c34584924a5e141994e3b1",
+			"authentication": {},
+			"body": {},
+			"created": 1549401956330,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1549401956330,
+			"method": "GET",
+			"modified": 1549419595798,
+			"name": "save vote",
+			"parameters": [
+				{
+					"id": "pair_02d0f85ef5d546358951872a3cdc8cc3",
+					"name": "electionId",
+					"value": "1"
+				},
+				{
+					"id": "pair_e48eba45120948acbca180784e95a9f3",
+					"name": "candidateId",
+					"value": "1"
+				},
+				{
+					"id": "pair_8e25014c89a847fcbc198580ce3d7526",
+					"name": "voterEmail",
+					"value": "test@test.com"
+				}
+			],
+			"parentId": "fld_f02554ab2c9b494ba07ee5e9504a5ac9",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "fumelect.tk:4000/saveVote",
+			"_type": "request"
+		}
+	]
+}
