@@ -27,7 +27,14 @@ services:
   #     MYSQL_ROOT_PASSWORD: "12345"
   #   ports:
   #     - "4306:3306"
-  # master:
+  master:
+    image: ardalanfp/cloudcoursemicroserviceproject:master
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "1000:8080"
   #   container_name: master
   #   restart: always
   #   build: ./master/
@@ -35,7 +42,14 @@ services:
   #     - "1000:8080"
   #   links:
   #     - masterdb
-  # validator:
+  validator:
+    image: ardalanfp/cloudcoursemicroserviceproject:validator
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "2000:8081"
   #   container_name: validator
   #   build: ./validator/
   #   ports:
