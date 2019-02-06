@@ -1,4 +1,5 @@
 RESTauth/node_modules/
+nodeauth/node_modules/
 
 master/target/
 !.mvn/wrapper/maven-wrapper.jar
