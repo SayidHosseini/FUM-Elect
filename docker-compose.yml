@@ -1,13 +1,13 @@
 version: "3"
 services:
-  # auth:
-  #   container_name: auth
-  #   restart: always
-  #   build: ./RESTauth/
-  #   ports:
-  #     - "2000:2000"
-  #   links:
-  #     - mongo
+  auth:
+    image: sayid/auth:latest
+    ports:
+      - "2000:2000"
+    links:
+      - mongo
+    restart_policy:
+      condition: on-failure
   mongo:
     container_name: mongo
     image: mongo
