@@ -23,8 +23,8 @@ services:
   #   container_name: masterdb
   #   restart: always
   #   build: ./master/databaseDirectory/
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: "12345"
+    environment:
+      MYSQL_ROOT_PASSWORD: "12345"
   #   ports:
   #     - "4306:3306"
   master:
