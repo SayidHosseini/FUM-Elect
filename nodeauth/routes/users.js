@@ -4,11 +4,6 @@ var multer = require('multer');
 var upload = multer({ dest: 'uploads/' });
 var request = require('request');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
 router.get('/register', function(req, res, next) {
   res.render('register', {title: 'Register'});
 });
@@ -40,6 +35,7 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
   req.checkBody('password', 'Passwords do NOT match!').equals(req.body.password2);
 
   var errors = req.validationErrors();
+  console.log(errors);
 
   if(errors)
   {
@@ -53,12 +49,33 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
   else
   {
     request.post({url: 'http://fumelect.tk:2000/users/register', form: {name: name, email: email, password: password, profileimage: profileimage}}, function(error, response, body) {
-      console.log('error', error);
-      console.log('statusCode', response && response.statusCode);
-      console.log('body:', body);
+      if(response.statusCode == 200)
+      {
+        errors = [{
+          location: 'body',
+          param: 'success',
+          msg: 'Successfully registered!',
+          value: ''
+        }];
+        res.render('login', {
+          title: 'Login',
+          errors: errors
+        });
+      }
+      else
+      {
+        errors = [{
+          location: 'body',
+          param: 'failed',
+          msg: body.msg,
+          value: ''
+        }];
+        res.render('register', {
+          title: 'Register',
+          errors: errors
+        });
+      }
     });
-    res.location();
-    res.redirect();
   }
 });
 
@@ -67,12 +84,25 @@ router.post('/login', function(req, res, next){
   var password = req.body.password;
 
   request.post({url: 'http://fumelect.tk:2000/users/login', form: {email: email, password: password}}, function(error, response, body){
-    console.log('error', error);
-    console.log('statusCode', response && response.statusCode);
-    console.log('body:', body);
+    if(response.statusCode == 200)
+    {
+      res.location('/');
+      res.redirect('/');
+    }
+    else
+    {
+      errors = [{
+        location: 'body',
+        param: 'failed',
+        msg: 'Invalid E-mail or Password!',
+        value: ''
+      }];
+      res.render('login', {
+        title: 'Login',
+        errors: errors
+      });
+    }
   });
-  res.location();
-  res.redirect();
 });
 
 module.exports = router;
