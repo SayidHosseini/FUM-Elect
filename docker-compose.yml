@@ -17,48 +17,11 @@ services:
         condition: on-failure
     ports:
       - "2000:2000"
+
   mongo:
     image: mongo
     ports:
       - "27017:27017"
-
-  masterdb:
-    image: ardalanfp/cloudcoursemicroserviceproject:masterdb
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: "12345"
-
-  master:
-    image: ardalanfp/cloudcoursemicroserviceproject:master
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-    ports:
-      - "1000:8080"
-
-  validator:
-    image: ardalanfp/cloudcoursemicroserviceproject:validator
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-    ports:
-      - "3000:8081"
-
-  electionportal:
-    image: ardalanfp/cloudcoursemicroserviceproject:electionportal
-    deploy:
-      replicas: 3
-      restart_policy:
-        condition: on-failure
-    ports:
-      - "4000:8082"
 
   visualizer:
     image: dockersamples/visualizer:stable
