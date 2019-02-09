@@ -10,7 +10,7 @@ services:
       - "80:80"
 
   auth:
-    image: sayid/auth:latest
+    image: sayid/electionauth:latest
     deploy:
       replicas: 1
       restart_policy:
