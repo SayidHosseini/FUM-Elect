@@ -8,6 +8,14 @@ services:
         condition: on-failure
     ports:
       - "2000:2000"
+  panel:
+    image: sayid/electionpanel:latest
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:80"
   mongo:
     image: mongo
     ports:
@@ -60,7 +68,7 @@ services:
   electionportal:
     image: ardalanfp/cloudcoursemicroserviceproject:electionportal
     deploy:
-      replicas: 1
+      replicas: 3
       restart_policy:
         condition: on-failure
     ports:

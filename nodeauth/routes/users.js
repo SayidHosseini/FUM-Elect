@@ -48,7 +48,7 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
   }
   else
   {
-    request.post({url: 'http://fumelect.tk:2000/users/register', form: {name: name, email: email, password: password, profileimage: profileimage}}, function(error, response, body) {
+    request.post({url: 'http://auth:2000/users/register', form: {name: name, email: email, password: password, profileimage: profileimage}}, function(error, response, body) {
       if(response.statusCode == 200)
       {
         errors = [{
@@ -83,7 +83,7 @@ router.post('/login', function(req, res, next){
   var email = req.body.email;
   var password = req.body.password;
 
-  request.post({url: 'http://fumelect.tk:2000/users/login', form: {email: email, password: password}}, function(error, response, body){
+  request.post({url: 'http://auth:2000/users/login', form: {email: email, password: password}}, function(error, response, body){
     if(response.statusCode == 200)
     {
       res.location('/');
