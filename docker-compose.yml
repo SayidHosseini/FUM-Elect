@@ -1,13 +1,5 @@
 version: "3"
 services:
-  auth:
-    image: sayid/auth:latest
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-    ports:
-      - "2000:2000"
   panel:
     image: sayid/electionpanel:latest
     deploy:
@@ -16,10 +8,20 @@ services:
         condition: on-failure
     ports:
       - "80:80"
+
+  auth:
+    image: sayid/auth:latest
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "2000:2000"
   mongo:
     image: mongo
     ports:
       - "27017:27017"
+
   masterdb:
     image: ardalanfp/cloudcoursemicroserviceproject:masterdb
     deploy:
@@ -28,13 +30,9 @@ services:
         condition: on-failure
     ports:
       - "3306:3306"
-  #   container_name: masterdb
-  #   restart: always
-  #   build: ./master/databaseDirectory/
     environment:
       MYSQL_ROOT_PASSWORD: "12345"
-  #   ports:
-  #     - "4306:3306"
+
   master:
     image: ardalanfp/cloudcoursemicroserviceproject:master
     deploy:
@@ -43,13 +41,7 @@ services:
         condition: on-failure
     ports:
       - "1000:8080"
-  #   container_name: master
-  #   restart: always
-  #   build: ./master/
-  #   ports:
-  #     - "1000:8080"
-  #   links:
-  #     - masterdb
+
   validator:
     image: ardalanfp/cloudcoursemicroserviceproject:validator
     deploy:
@@ -58,13 +50,7 @@ services:
         condition: on-failure
     ports:
       - "3000:8081"
-  #   container_name: validator
-  #   build: ./validator/
-  #   ports:
-  #     - "3000:8081"
-  #   links:
-  #     - master
-  #     - auth
+
   electionportal:
     image: ardalanfp/cloudcoursemicroserviceproject:electionportal
     deploy:
@@ -73,14 +59,7 @@ services:
         condition: on-failure
     ports:
       - "4000:8082"
-  #   container_name: electionportal
-  #   deploy:
-  #     replicas: 5
-  #   build: ./electionportal/
-  #   ports:
-  #     - "4000:8082"
-  #   links:
-  #     - master
+
   visualizer:
     image: dockersamples/visualizer:stable
     ports:
