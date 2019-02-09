@@ -1,7 +1,7 @@
 version: "3"
 services:
   panel:
-    image: sayid/electionpanel:latest
+    image: sayid/electionpanel:arm
     deploy:
       replicas: 1
       restart_policy:
@@ -10,7 +10,7 @@ services:
       - "80:80"
 
   auth:
-    image: sayid/electionauth:latest
+    image: sayid/electionauth:arm
     deploy:
       replicas: 1
       restart_policy:
