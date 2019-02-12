@@ -19,16 +19,17 @@ services:
       - "2000:2000"
 
   mongo:
-    image: mongo
+    image: nonoroazoro/rpi-mongo
     ports:
       - "27017:27017"
 
   visualizer:
-    image: dockersamples/visualizer:stable
+    image: alexellis2/visualizer-arm:latest
     ports:
-      - "8080:8080"
+      - "8181:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
     deploy:
       placement:
         constraints: [node.role == manager]
+
