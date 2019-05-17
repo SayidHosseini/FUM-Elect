@@ -1,7 +1,7 @@
 version: "3"
 services:
   panel:
-    image: sayid/ellection_ui:arm
+    image: sayid/election_ui:arm
     deploy:
       replicas: 1
       restart_policy:
