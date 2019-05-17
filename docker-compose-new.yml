@@ -1,0 +1,66 @@
+version: "3"
+services:
+  panel:
+    image: sayid/election_ui:arm
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:80"
+
+  auth:
+    image: sayid/auth:arm
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "2000:2000"
+
+  mongo:
+    image: nonoroazoro/rpi-mongo
+    ports:
+      - "27017:27017"
+
+  visualizer:
+    image: alexellis2/visualizer-arm:latest
+    ports:
+      - "8181:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+  electionManagerDb:
+    image: ardalanfp/election_manager_db:arm
+    deploy:
+      replicas: 1
+    ports:
+      - "4306:3306"
+
+  electionManager:
+    image: ardalanfp/fum_election_electionmanager:arm
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "3000:8080"
+  electionPortalDb:
+    image: ardalanfp/election_portal_db:arm
+    deploy:
+      replicas: 1
+    ports:
+      - "5306:3306"
+
+  electionManager:
+    image: ardalanfp/fum_election_electionportal:arm
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "4000:8090"
+
